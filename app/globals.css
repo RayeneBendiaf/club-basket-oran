@@ -1,19 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #00183a;
+  --background: #000000;
+  --foreground: #ffffff;
   --primary: #ff0000; /* orange basket */
-  --secondary: #00183a; /* bleu foncé */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-    --foreground: #ffffff;
-    --primary: #ff0000;
-    --secondary: #00183a;
-  }
 }
 
 body {
