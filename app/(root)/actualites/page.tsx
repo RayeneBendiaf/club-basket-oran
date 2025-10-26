@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 interface Actu {
   _id: string;
@@ -72,7 +71,7 @@ export default function Actualites() {
               <div className=" ">
                 {actu.image && (
                   <img
-                    src={`http://localhost:5000${actu.image}`}
+                    src={`https://club-oranais-basketball-backend.onrender.com${actu.image}`}
                     alt={actu.titre}
                     className="object-cover "
                   />
