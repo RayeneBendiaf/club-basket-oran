@@ -51,7 +51,7 @@ export default function Classement() {
       </div>
 
       <div className="w-full p-3 md:p-20">
-        <h2 className="text-4xl md:text-6xl font-bold pl-10 mb-16 text-[var(--primary)]">
+        <h2 className="text-4xl md:text-6xl font-bold text-center md:mb-16 mb-10 text-[var(--primary)]">
           {championnat.titre}
           {championnat.saison}
         </h2>

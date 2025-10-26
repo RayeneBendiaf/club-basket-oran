@@ -56,8 +56,8 @@ export default function Matches() {
       </div>
 
       {/* --- Liste des matchs --- */}
-      <div className="w-full p-6 md:p-20">
-        <h2 className="text-6xl font-bold pl-10 mb-16 text-[var(--primary)]">
+      <div className="w-full p-3 md:p-20">
+        <h2 className="text-4xl md:text-6xl text-center font-bold md:mb-16 mb-10 text-[var(--primary)]">
           Calendrier des matchs
         </h2>
 
@@ -70,7 +70,7 @@ export default function Matches() {
             {matchs.map((match) => (
               <div
                 key={match._id}
-                className=" bg-neutral-900 shadow-lg p-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+                className=" bg-neutral-900 shadow-lg px-2 py-6 md:p-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left"
               >
                 {/* Infos principales */}
                 <div className="flex flex-col items-center md:items-start">
