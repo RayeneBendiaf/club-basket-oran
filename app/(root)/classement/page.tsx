@@ -50,7 +50,7 @@ export default function Classement() {
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
       </div>
 
-      <div className="w-full p-6 md:p-20">
+      <div className="w-full p-3 md:p-20">
         <h2 className="text-4xl md:text-6xl font-bold pl-10 mb-16 text-[var(--primary)]">
           {championnat.titre}
           {championnat.saison}

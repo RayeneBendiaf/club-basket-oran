@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 interface Match {
   _id: string;
@@ -70,23 +70,27 @@ export default function Matches() {
             {matchs.map((match) => (
               <div
                 key={match._id}
-                className="bg-white dark:bg-neutral-900 shadow-lg p-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+                className=" bg-neutral-900 shadow-lg p-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left"
               >
                 {/* Infos principales */}
                 <div className="flex flex-col items-center md:items-start">
-                  <div className="flex items-center text-3xl font-bold space-x-6">
-                    <p>{match.equipeDomicile?.nom || "Équipe A"}</p>
-                    <p className="text-[var(--primary)]">VS</p>
-                    <p>{match.equipeExterieur?.nom || "Équipe B"}</p>
+                  <div className="grid grid-cols-3 md:flex items-center text-3xl md:text-5xl font-bold md:gap-x-6">
+                    <p className="text-left">
+                      {match.equipeDomicile?.nom || "Équipe A"}
+                    </p>
+                    <p className="text-[var(--primary)] text-center">VS</p>
+                    <p className="text-right">
+                      {match.equipeExterieur?.nom || "Équipe B"}
+                    </p>
                   </div>
 
-                  <p className="text-gray-500 mt-3">
+                  <p className="text-gray-500 mt-3 md:text-xl">
                     {match.date
                       ? new Date(match.date).toLocaleDateString("fr-FR")
                       : "Date à définir"}{" "}
                     • {match.heure || "Heure inconnue"}
                   </p>
-                  <p className="text-gray-400">
+                  <p className="text-gray-400 md:text-xl">
                     {match.lieu || "Lieu non défini"}
                   </p>
                 </div>
@@ -99,7 +103,7 @@ export default function Matches() {
                       {match.scoreDomicile} - {match.scoreExterieur}
                     </span>
                   ) : (
-                    <span className="bg-[var(--primary)] text-white text-xl px-5 py-2 rounded-xl">
+                    <span className="bg-[var(--primary)]  text-xl px-5 py-2 rounded">
                       À venir
                     </span>
                   )}
