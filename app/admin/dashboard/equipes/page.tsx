@@ -1,0 +1,121 @@
+"use client";
+import { useEffect, useState } from "react";
+
+interface Equipe {
+  _id: string;
+  nom: string;
+  points: number;
+}
+
+export default function GestionEquipes() {
+  const [equipes, setEquipes] = useState<Equipe[]>([]);
+  const [nom, setNom] = useState("");
+  const [points, setPoints] = useState(0);
+  const [message, setMessage] = useState("");
+
+  // 📦 Charger les équipes existantes
+  const fetchEquipes = async () => {
+    const res = await fetch(
+      "https://club-oranais-basketball-backend.onrender.com/api/equipes"
+    );
+    const data = await res.json();
+    setEquipes(data);
+  };
+
+  useEffect(() => {
+    fetchEquipes();
+  }, []);
+
+  // ➕ Ajouter une équipe
+  const handleAdd = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const res = await fetch(
+      "https://club-oranais-basketball-backend.onrender.com/api/equipes",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nom, points }),
+      }
+    );
+
+    if (res.ok) {
+      setMessage("✅ Équipe ajoutée avec succès !");
+      setNom("");
+      setPoints(0);
+      fetchEquipes();
+    } else {
+      setMessage("❌ Erreur lors de l’ajout.");
+    }
+  };
+
+  // 🗑️ Supprimer une équipe
+  const handleDelete = async (id: string) => {
+    if (!confirm("Supprimer cette équipe ?")) return;
+
+    const res = await fetch(
+      `https://club-oranais-basketball-backend.onrender.com/api/equipes/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (res.ok) fetchEquipes();
+  };
+
+  return (
+    <div className="p-6 w-full">
+      <h1 className="text-4xl font-bold text-[var(--primary)] mb-6">
+        Gestion des Équipes
+      </h1>
+
+      {/* ✅ Message d’alerte */}
+      {message && (
+        <div className="mb-4 text-center text-green-600 font-semibold">
+          {message}
+        </div>
+      )}
+
+      {/* ➕ Formulaire d’ajout */}
+      <form
+        onSubmit={handleAdd}
+        className="p-4 rounded-lg shadow mb-8 space-y-3"
+      >
+        <input
+          type="text"
+          placeholder="Nom de l’équipe"
+          value={nom}
+          onChange={(e) => setNom(e.target.value)}
+          required
+          className="bg-[var(--foreground)]/20 w-full px-3 py-2 rounded"
+        />
+
+        <button
+          type="submit"
+          className="bg-[var(--primary)] px-4 py-2 rounded hover:opacity-60"
+        >
+          Ajouter
+        </button>
+      </form>
+
+      {/* 📋 Liste des équipes */}
+      <div className="space-y-4">
+        {equipes.map((equipe) => (
+          <div
+            key={equipe._id}
+            className="p-4 shadow rounded flex items-center justify-between border-b border-[var(--primary)]"
+          >
+            <div>
+              <h2 className="font-bold text-3xl">{equipe.nom}</h2>
+            </div>
+            <button
+              onClick={() => handleDelete(equipe._id)}
+              className="text-red-600 font-semibold hover:underline"
+            >
+              Supprimer
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
