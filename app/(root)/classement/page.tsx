@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 export default function Classement() {
   const [classement, setClassement] = useState<any[]>([]);
@@ -51,7 +51,7 @@ export default function Classement() {
       </div>
 
       <div className="w-full p-6 md:p-20">
-        <h2 className="text-6xl font-bold pl-10 mb-16 text-[var(--primary)]">
+        <h2 className="text-4xl md:text-6xl font-bold pl-10 mb-16 text-[var(--primary)]">
           {championnat.titre}
           {championnat.saison}
         </h2>
@@ -61,7 +61,7 @@ export default function Classement() {
         ) : (
           <table className="w-full border-collapse">
             <thead>
-              <tr className="bg-[var(--primary)] text-3xl">
+              <tr className="bg-[var(--primary)] text-xl md:text-3xl">
                 <th className="p-3 text-left rounded-tl-lg">#</th>
                 <th className="p-3 text-left">Équipe</th>
                 <th className="p-3 text-center">Pts</th>
@@ -78,14 +78,22 @@ export default function Classement() {
                     index === 0 ? "" : ""
                   }`}
                 >
-                  <td className="p-3 font-bold text-3xl text-[var(--primary)]">
+                  <td className="p-3 font-bold text-xl md:text-3xl text-[var(--primary)]">
                     {index + 1}
                   </td>
-                  <td className="p-3 text-3xl">{row.equipe.nom}</td>
-                  <td className="p-3 text-center text-3xl">{row.points}</td>
-                  <td className="p-3 text-center text-3xl">{row.victoires}</td>
-                  <td className="p-3 text-center text-3xl">{row.defaites}</td>
-                  <td className="p-3 text-center text-3xl">{row.difference}</td>
+                  <td className="p-3 text-xl md:text-3xl">{row.equipe.nom}</td>
+                  <td className="p-3 text-center text-xl md:text-3xl">
+                    {row.points}
+                  </td>
+                  <td className="p-3 text-center text-xl md:text-3xl">
+                    {row.victoires}
+                  </td>
+                  <td className="p-3 text-center text-xl md:text-3xl">
+                    {row.defaites}
+                  </td>
+                  <td className="p-3 text-center text-xl md:text-3xl">
+                    {row.difference}
+                  </td>
                 </tr>
               ))}
             </tbody>
