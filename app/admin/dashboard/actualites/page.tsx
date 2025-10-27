@@ -71,7 +71,7 @@ export default function GestionActualites() {
   };
 
   return (
-    <div className="p-6 w-full">
+    <div className="md:p-6 md:mt-0 mt-20 w-full">
       <h1 className="text-4xl font-bold text-[var(--primary)] mb-6">
         Gestion des Actualités
       </h1>
@@ -123,20 +123,21 @@ export default function GestionActualites() {
         {actus.map((actu) => (
           <div
             key={actu._id}
-            className=" p-4 shadow rounded  flex items-center justify-between border-b border-[var(--primary)]"
+            className=" md:p-4 py-4 shadow rounded  flex items-center justify-between border-b border-[var(--primary)]"
           >
             <div className="flex items-center gap-4 ">
               {actu.image && (
                 <img
                   src={`http://localhost:5000${actu.image}`}
-                  alt={actu.titre}
-                  className="w-40 h-40 object-cover rounded"
+                  className="w-20 h-20 md:w-40 md:h-40 object-cover "
                 />
               )}
               <div>
-                <h2 className="font-bold text-4xl">{actu.titre}</h2>
-                <p className="text-3xl text-gray-600">{actu.description}</p>
-                <p className="text-xl text-gray-400">
+                <h2 className="font-bold text-xl md:text-4xl">{actu.titre}</h2>
+                <p className="text-l md:text-3xl text-gray-600">
+                  {actu.description}
+                </p>
+                <p className="md:text-xl text-sm text-gray-400">
                   {new Date(actu.datePublication).toLocaleDateString("fr-FR")}
                 </p>
               </div>

@@ -1,21 +1,38 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { Facebook, Instagram } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className=" bg-[var(--background)] text-[var(--text)] pt-30">
-      <div className="relative w-full flex items-center justify-center pt-30 md:pt-60 md:mb-60">
-        <Image
-          src="/images/Bande.PNG"
-          alt="Bande COBB"
-          fill
-          priority
-          className=""
-        />
+      <div className="relative w-full h-16 overflow-hidden bg-[var(--primary)] flex items-center mb-10 md:mb-50">
+        <div className="flex whitespace-nowrap animate-scroll text-4xl font-bold">
+          {Array(20)
+            .fill("C.O.B.B")
+            .map((text, i) => (
+              <span key={i} className="mx-8">
+                {text}
+              </span>
+            ))}
+        </div>
+
+        <style jsx>{`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+          .animate-scroll {
+            animation: scroll 20s linear infinite;
+          }
+        `}</style>
       </div>
+
       <div className="max-w-6xl mx-auto px-6 py-10 md:pb-30 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0">
         {/* Logo */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">

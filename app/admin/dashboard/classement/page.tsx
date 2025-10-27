@@ -78,7 +78,7 @@ export default function GestionClassement() {
   };
 
   return (
-    <div className="p-6 w-full">
+    <div className="mt-20 md:mt-0 md:p-6 w-full">
       <h1 className="text-4xl font-bold text-[var(--primary)] mb-6">
         Gestion du Classement
       </h1>
@@ -91,7 +91,7 @@ export default function GestionClassement() {
 
       <div className="overflow-x-auto">
         <table className="min-w-full border border-[var(--primary)] rounded-lg shadow">
-          <thead className="text-2xl bg-[var(--primary)]">
+          <thead className="text-xl md:text-2xl bg-[var(--primary)]">
             <tr>
               <th className="px-4 py-2 text-left">Équipe</th>
               <th className="px-4 py-2">Pts</th>
@@ -109,7 +109,7 @@ export default function GestionClassement() {
             {classements.map((c) => (
               <tr
                 key={c._id}
-                className="text-2xl border-t border-[var(--primary)]"
+                className="md:text-2xl border-t border-[var(--primary)]"
               >
                 <td className="px-4 py-2 font-semibold">
                   {c.equipe ? (

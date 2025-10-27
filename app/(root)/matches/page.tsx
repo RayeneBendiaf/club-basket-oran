@@ -49,7 +49,7 @@ export default function Matches() {
         />
         <div className="relative z-10 text-center">
           <h1 className="text-6xl md:text-8xl font-extrabold mb-4 drop-shadow-lg">
-            Matches
+            Matchs
           </h1>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />

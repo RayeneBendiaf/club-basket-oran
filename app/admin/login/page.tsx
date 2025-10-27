@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -43,7 +43,7 @@ export default function AdminLogin() {
 
   return (
     <div className="flex items-center justify-center min-h-screen ">
-      <div className="bg-[var(--foreground)]/10 p-8 rounded-2xl shadow-lg w-full max-w-md ">
+      <div className="bg-[var(--foreground)]/10 p-8 md:rounded-2xl h-screen md:h-auto shadow-lg w-full max-w-md ">
         <Image
           src="/logos/logo.png"
           alt="Logo du club"

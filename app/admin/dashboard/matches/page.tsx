@@ -116,7 +116,7 @@ export default function GestionMatchs() {
   };
 
   return (
-    <div className="p-6 w-full">
+    <div className="mt-20 md:mt-0 md:p-6 w-full">
       <h1 className="text-4xl font-bold text-[var(--primary)] mb-6">
         Gestion des Matchs
       </h1>
@@ -200,10 +200,10 @@ export default function GestionMatchs() {
         {matchs.map((match) => (
           <div
             key={match._id}
-            className="p-4 shadow rounded border-b border-[var(--primary)] flex flex-col gap-3"
+            className="md:p-4 py-4 shadow rounded border-b border-[var(--primary)] flex flex-col gap-3"
           >
             <div className="flex justify-between items-center">
-              <h2 className="font-bold text-4xl">
+              <h2 className="font-bold text-2xl md:text-4xl">
                 {match.equipeDomicile?.nom} 🆚 {match.equipeExterieur?.nom}
               </h2>
               <p className="text-gray-500 text-xl">
@@ -212,7 +212,7 @@ export default function GestionMatchs() {
               </p>
             </div>
 
-            <p className="text-gray-600 text-2xl">📍 {match.lieu}</p>
+            <p className="text-gray-600 text-xl md:text-2xl">📍 {match.lieu}</p>
 
             <div className="flex items-center gap-3">
               <input

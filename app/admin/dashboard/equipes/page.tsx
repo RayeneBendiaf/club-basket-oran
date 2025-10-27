@@ -63,7 +63,7 @@ export default function GestionEquipes() {
   };
 
   return (
-    <div className="p-6 w-full">
+    <div className="md:p-6 md:mt-0 mt-20 w-full">
       <h1 className="text-4xl font-bold text-[var(--primary)] mb-6">
         Gestion des Équipes
       </h1>
@@ -102,7 +102,7 @@ export default function GestionEquipes() {
         {equipes.map((equipe) => (
           <div
             key={equipe._id}
-            className="p-4 shadow rounded flex items-center justify-between border-b border-[var(--primary)]"
+            className="md:p-4 py-4 shadow rounded flex items-center justify-between border-b border-[var(--primary)]"
           >
             <div>
               <h2 className="font-bold text-3xl">{equipe.nom}</h2>
