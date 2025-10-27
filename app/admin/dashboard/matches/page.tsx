@@ -165,6 +165,7 @@ export default function GestionMatchs() {
         <input
           type="date"
           value={date}
+          placeholder="JJ/MM/AAAA"
           onChange={(e) => setDate(e.target.value)}
           required
           className="bg-[var(--foreground)]/20 w-full px-3 py-2 rounded"
@@ -173,6 +174,7 @@ export default function GestionMatchs() {
         <input
           type="time"
           value={heure}
+          placeholder="--:--"
           onChange={(e) => setHeure(e.target.value)}
           required
           className="bg-[var(--foreground)]/20 w-full px-3 py-2 rounded"
