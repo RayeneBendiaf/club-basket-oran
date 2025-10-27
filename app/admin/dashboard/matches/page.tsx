@@ -130,7 +130,7 @@ export default function GestionMatchs() {
       {/* Formulaire */}
       <form
         onSubmit={handleAdd}
-        className="p-4 rounded-lg shadow mb-8 space-y-3"
+        className="md:p-4 rounded-lg shadow mb-8 space-y-3"
       >
         <div className="grid grid-cols-2 gap-3">
           <select
@@ -203,16 +203,16 @@ export default function GestionMatchs() {
             className="md:p-4 py-4 shadow rounded border-b border-[var(--primary)] flex flex-col gap-3"
           >
             <div className="flex justify-between items-center">
-              <h2 className="font-bold text-2xl md:text-4xl">
+              <h2 className="font-bold text-xl md:text-4xl">
                 {match.equipeDomicile?.nom} 🆚 {match.equipeExterieur?.nom}
               </h2>
-              <p className="text-gray-500 text-xl">
+              <p className="text-gray-500 md:text-xl">
                 {new Date(match.date).toLocaleDateString("fr-FR")} à{" "}
                 {match.heure}
               </p>
             </div>
 
-            <p className="text-gray-600 text-xl md:text-2xl">📍 {match.lieu}</p>
+            <p className="text-gray-600  md:text-2xl">📍 {match.lieu}</p>
 
             <div className="flex items-center gap-3">
               <input
@@ -227,7 +227,7 @@ export default function GestionMatchs() {
                     },
                   }))
                 }
-                className="w-24 text-center border rounded px-2 py-1"
+                className="w-10 md:w-24 text-center border rounded px-2 py-1"
               />
               <span>-</span>
               <input
@@ -242,11 +242,11 @@ export default function GestionMatchs() {
                     },
                   }))
                 }
-                className="w-24 text-center border rounded px-2 py-1"
+                className="w-10 md:w-24 text-center border rounded px-2 py-1"
               />
               <button
                 onClick={() => handleUpdateScore(match._id)}
-                className="bg-[var(--primary)] px-3 py-1 rounded hover:opacity-70 text-white"
+                className="bg-[var(--primary)] px-3 py-1 rounded hover:opacity-70 "
               >
                 Enregistrer
               </button>

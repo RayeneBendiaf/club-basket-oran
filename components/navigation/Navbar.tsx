@@ -52,8 +52,8 @@ export default function Navbar() {
             <Image
               src="/logos/logo.png"
               alt="Logo du club"
-              width={90}
-              height={90}
+              width={70}
+              height={70}
               priority
               className="block md:hidden"
             />
@@ -89,7 +89,7 @@ export default function Navbar() {
 
           {/* Bouton burger mobile */}
           <button className="md:hidden" onClick={toggleMenu} aria-label="Menu">
-            {isOpen ? <X size={50} /> : <Menu size={50} />}
+            {isOpen ? <X size={40} /> : <Menu size={40} />}
           </button>
         </div>
       </nav>
@@ -142,7 +142,7 @@ export default function Navbar() {
             className="absolute top-8 right-5"
             aria-label="Fermer le menu"
           >
-            <X size={50} />
+            <X size={40} />
           </button>
         </div>
       )}

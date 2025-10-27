@@ -1,5 +1,6 @@
-import Sidebar from "@/components/navigation/Sidebar";
 import { Metadata } from "next";
+
+import Sidebar from "@/components/navigation/Sidebar";
 
 export const metadata: Metadata = {
   title: "C.O.B.B - Administrateur",
@@ -17,7 +18,7 @@ export default function DashboardLayout({
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex-1 p-8 overflow-y-auto">{children}</div>
+      <div className="flex-1 p-3 md:p-8 overflow-y-auto">{children}</div>
     </div>
   );
 }

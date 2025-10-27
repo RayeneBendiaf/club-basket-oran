@@ -61,12 +61,12 @@ const Sidebar: FC = () => {
         <Image
           src="/logos/logo.png"
           alt="Logo du club"
-          width={90}
-          height={90}
+          width={70}
+          height={70}
           priority
         />
         <button onClick={() => setIsOpen(true)} aria-label="Ouvrir le menu">
-          <Menu size={50} />
+          <Menu size={40} />
         </button>
       </div>
 
@@ -112,7 +112,7 @@ const Sidebar: FC = () => {
             aria-label="Fermer le menu"
             className="absolute top-8 right-5"
           >
-            <X size={45} />
+            <X size={40} />
           </button>
 
           {/* Logo */}

@@ -78,7 +78,7 @@ export default function GestionEquipes() {
       {/* ➕ Formulaire d’ajout */}
       <form
         onSubmit={handleAdd}
-        className="p-4 rounded-lg shadow mb-8 space-y-3"
+        className="md:p-4 rounded-lg shadow mb-8 space-y-3"
       >
         <input
           type="text"
