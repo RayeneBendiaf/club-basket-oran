@@ -1,5 +1,6 @@
 "use client";
 
+import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -62,7 +63,9 @@ export default function Matches() {
         </h2>
 
         {loading ? (
-          <p className="text-center text-2xl">Chargement...</p>
+          <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-50">
+            <Loader2 className="w-20 h-20 text-[var(--primary)] animate-spin" />
+          </div>
         ) : matchs.length === 0 ? (
           <p className="text-center text-2xl">Aucun match trouvé.</p>
         ) : (

@@ -1,4 +1,5 @@
 "use client";
+import { Loader2 } from "lucide-react"; // ✅ Import de l’icône animée
 import { useEffect, useState } from "react";
 
 interface Equipe {
@@ -12,14 +13,22 @@ export default function GestionEquipes() {
   const [nom, setNom] = useState("");
   const [points, setPoints] = useState(0);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(true); // ✅ nouvel état de chargement
 
   // 📦 Charger les équipes existantes
   const fetchEquipes = async () => {
-    const res = await fetch(
-      "https://club-oranais-basketball-backend.onrender.com/api/equipes"
-    );
-    const data = await res.json();
-    setEquipes(data);
+    setLoading(true);
+    try {
+      const res = await fetch(
+        "https://club-oranais-basketball-backend.onrender.com/api/equipes"
+      );
+      const data = await res.json();
+      setEquipes(data);
+    } catch (err) {
+      console.error("Erreur de chargement :", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -54,9 +63,7 @@ export default function GestionEquipes() {
 
     const res = await fetch(
       `https://club-oranais-basketball-backend.onrender.com/api/equipes/${id}`,
-      {
-        method: "DELETE",
-      }
+      { method: "DELETE" }
     );
 
     if (res.ok) fetchEquipes();
@@ -97,25 +104,31 @@ export default function GestionEquipes() {
         </button>
       </form>
 
-      {/* 📋 Liste des équipes */}
-      <div className="space-y-4">
-        {equipes.map((equipe) => (
-          <div
-            key={equipe._id}
-            className="md:p-4 py-4 shadow rounded flex items-center justify-between border-b border-[var(--primary)]"
-          >
-            <div>
-              <h2 className="font-bold text-3xl">{equipe.nom}</h2>
-            </div>
-            <button
-              onClick={() => handleDelete(equipe._id)}
-              className="text-red-600 font-semibold hover:underline"
+      {/* 📋 Liste ou chargement */}
+      {loading ? (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-50">
+          <Loader2 className="w-20 h-20 text-[var(--primary)] animate-spin" />
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {equipes.map((equipe) => (
+            <div
+              key={equipe._id}
+              className="md:p-4 py-4 shadow rounded flex items-center justify-between border-b border-[var(--primary)]"
             >
-              Supprimer
-            </button>
-          </div>
-        ))}
-      </div>
+              <div>
+                <h2 className="font-bold text-3xl">{equipe.nom}</h2>
+              </div>
+              <button
+                onClick={() => handleDelete(equipe._id)}
+                className="text-red-600 font-semibold hover:underline"
+              >
+                Supprimer
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

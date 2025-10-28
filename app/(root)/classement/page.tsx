@@ -1,4 +1,5 @@
 "use client";
+import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -57,7 +58,9 @@ export default function Classement() {
         </h2>
 
         {loading ? (
-          <p className="text-center text-2xl text-gray-400">Chargement...</p>
+          <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-50">
+            <Loader2 className="w-20 h-20 text-[var(--primary)] animate-spin" />
+          </div>
         ) : (
           <table className="w-full border-collapse">
             <thead>
